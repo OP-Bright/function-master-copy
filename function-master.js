@@ -159,9 +159,20 @@ function isFriend(name, object) {
 
 function nonFriends(name, array) {
     const newArr = [];
-    for (let i = 0; i < name.friends.length; i++) {
-        
-    }
+    for (let i = 0; i < array.length; i++ ) {
+        let friendsList = array[i].friends
+        let potentialName = array[i].name
+        if (potentialName === name) {
+
+        } else {
+            if (friendsList.includes(name)) {
+
+            } else {
+                newArr.push(potentialName)
+            }
+        }
+        }
+    return newArr
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -178,7 +189,14 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-    
+    for (let i = 0; i < array.length; i++) {
+        for (let key in object) {
+            if (key === array[i]) {
+                delete object[key]
+            }
+        }
+    }
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
